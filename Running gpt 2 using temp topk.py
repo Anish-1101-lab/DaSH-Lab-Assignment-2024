@@ -1,12 +1,12 @@
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 
-# Load the model and tokenizer
+
 model_name = "gpt2"
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 model = GPT2LMHeadModel.from_pretrained(model_name).to("cuda" if torch.cuda.is_available() else "cpu")
 
-# Tokenize input
+
 input_text = "Once upon a time,"
 input_ids = tokenizer.encode(input_text, return_tensors="pt").to(model.device)
 
